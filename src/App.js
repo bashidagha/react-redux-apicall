@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
+import Posts from "./components/posts";
+import React from 'react';
+import "./App.css";
+import tutorial from './reduxasyncdataflowdiagram-d97ff38a0f4da0f327163170ccc13e80.gif'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const store = configureStore();
+
+class App extends React.Component{
+
+
+    render(){
+      return (
+        <Provider store={store}>
+            <img src={tutorial} style={{width:"45rem"}} alt="gif redux tutorial"/>
+            <Posts />
+        </Provider>
+    );
+    }
 }
 
 export default App;
